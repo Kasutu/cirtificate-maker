@@ -1,1 +1,1 @@
-export const namesList = ['Alyssa Garcia', 'Tj Cainglet'];
+export const namesList = ['Alyssa Garcia', 'Diadem Grace Arroz'];
