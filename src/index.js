@@ -5,26 +5,25 @@ import { namesList } from '../input/namesList.js';
 const outputDir = '../output';
 const inputDir = '../input';
 const bgName = 'Info-Session-Cert.png';
-
-let getFromInputPath = (dir, name) => `${dir}/${name}`;
-let makeOutputDir = (dir, name) => `${dir}/${name}.png`;
-
-const fontPath = getFromInputPath(inputDir, 'minecraft.ttf');
-registerFont(fontPath, { family: 'monospace', weight: 'bold' });
-
-const bgSrc = getFromInputPath(inputDir, bgName);
-
 const width = 2000;
 const height = 1414;
+const center = width / 2;
+const targetHight = 580;
 
+let getFromInputPath = (name) => `${inputDir}/${name}`;
+let writeOutputDir = (name) => `${outputDir}/${name}.png`;
+
+registerFont(getFromInputPath('minecraft.ttf'), {
+  family: 'monospace',
+  weight: 'bold',
+});
+
+const bgSrc = getFromInputPath(bgName);
 const canvas = createCanvas(width, height);
 const ctx = canvas.getContext('2d');
 
-const center = width / 2;
-const targetHight = 530;
-
 function drawText(name) {
-  const imgOut = makeOutputDir(outputDir, name);
+  const imgOut = writeOutputDir(name);
 
   let img = new Image();
   img.src = bgSrc;
